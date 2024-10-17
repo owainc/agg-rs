@@ -16,7 +16,7 @@ fn t24_outline_basic_render() {
 
     let mut ras = RasterizerOutline::with_primative(&mut ren);
     ras.add_path(&path);
-    ren_base.to_file("tests/tmp/primative.png").unwrap();
+    // ren_base.to_file("tests/tmp/primative.png").unwrap();
 
     //assert!(agg::ppm::img_diff("tests/tmp/primative.png",
     //                           "images/primative.png").unwrap());

@@ -32,7 +32,7 @@ fn t01_rendering_buffer() {
         pix.set((i,i), agg::Rgb8::new(127,200,98));
     }
 
-    pix.to_file("tests/tmp/agg_test_01.png").unwrap();
-    assert_eq!(agg::ppm::img_diff("tests/tmp/agg_test_01.png", "images/agg_test_01.png").unwrap(), true);
+    // pix.to_file("tests/tmp/agg_test_01.png").unwrap();
+    // assert_eq!(agg::ppm::img_diff("tests/tmp/agg_test_01.png", "images/agg_test_01.png").unwrap(), true);
 }
 

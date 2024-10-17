@@ -127,7 +127,6 @@
 use std::fmt::Debug;
 
 #[doc(hidden)]
-pub use freetype as ft;
 
 pub mod paths;
 pub mod stroke;
@@ -137,10 +136,8 @@ pub mod pixfmt;
 pub mod base;
 pub mod clip;
 pub mod raster;
-pub mod ppm;
 pub mod alphamask;
 pub mod render;
-pub mod text;
 pub mod outline;
 pub mod outline_aa;
 pub mod line_interp;
@@ -173,8 +170,6 @@ pub use crate::raster::*;
 pub use crate::alphamask::*;
 #[doc(hidden)]
 pub use crate::render::*;
-#[doc(hidden)]
-pub use crate::text::*;
 #[doc(hidden)]
 pub use crate::line_interp::*;
 #[doc(hidden)]
@@ -261,7 +256,6 @@ pub trait Pixel {
     fn cover_mask() -> u64;
     fn bpp() -> usize;
     fn as_bytes(&self) -> &[u8];
-    fn to_file<P: AsRef<std::path::Path>>(&self, filename: P) -> Result<(),std::io::Error>;
     fn width(&self) -> usize;
     fn height(&self) -> usize;
     fn set<C: Color>(&mut self, id: (usize, usize), c: C);

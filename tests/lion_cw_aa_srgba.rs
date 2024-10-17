@@ -107,9 +107,8 @@ fn lion_cw_aa_srgba() {
 
     agg::render_all_paths(&mut ras, &mut ren, &t, &colors);
 
-    ren.to_file("tests/tmp/lion_cw_aa_srgba.png").unwrap();
-
-    assert_eq!(agg::ppm::img_diff("tests/tmp/lion_cw_aa_srgba.png", "images/lion_cw_aa_srgba.png").unwrap(), true);
+    // ren.to_file("tests/tmp/lion_cw_aa_srgba.png").unwrap();
+    // assert_eq!(agg::ppm::img_diff("tests/tmp/lion_cw_aa_srgba.png", "images/lion_cw_aa_srgba.png").unwrap(), true);
 
 }
 // compare -verbose -metric AE lion.ppm ./tests/lion.ppm blarg.ppm

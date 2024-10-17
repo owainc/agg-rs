@@ -194,16 +194,16 @@ fn rasterizers2_pre() {
     {
         let mut ras_aa = agg::RasterizerScanline::new();
         let mut ren_aa = agg::RenderingScanlineAASolid::with_base(&mut ren_base);
-        text(&mut ras_aa, &mut ren_aa, 50.0, 75.0,
-             "Bresenham lines,\n\nregular accuracy");
-        text(&mut ras_aa, &mut ren_aa, (w/2-50) as f64, 75.0,
-             "Bresenham lines,\n\nsubpixel accuracy");
-        text(&mut ras_aa, &mut ren_aa, 50., (h/2+50) as f64,
-             "Anti-aliased lines");
-        text(&mut ras_aa, &mut ren_aa, (w/2-50) as f64, (h/2+50) as f64,
-             "Scanline rasterizer");
-        text(&mut ras_aa, &mut ren_aa, (w - w/5 - 50) as f64, (h/2+50) as f64,
-             "Arbitrary Image Pattern");
+        // text(&mut ras_aa, &mut ren_aa, 50.0, 75.0,
+        //      "Bresenham lines,\n\nregular accuracy");
+        // text(&mut ras_aa, &mut ren_aa, (w/2-50) as f64, 75.0,
+        //      "Bresenham lines,\n\nsubpixel accuracy");
+        // text(&mut ras_aa, &mut ren_aa, 50., (h/2+50) as f64,
+        //      "Anti-aliased lines");
+        // text(&mut ras_aa, &mut ren_aa, (w/2-50) as f64, (h/2+50) as f64,
+        //      "Scanline rasterizer");
+        // text(&mut ras_aa, &mut ren_aa, (w - w/5 - 50) as f64, (h/2+50) as f64,
+        //      "Arbitrary Image Pattern");
 
     }
 
@@ -215,25 +215,25 @@ fn rasterizers2_pre() {
             out.push(data[i]);
         }
     }
-    ren_base.pixf.drop_alpha().to_file("tests/tmp/rasterizers2_pre.png").unwrap();
-    assert!(agg::ppm::img_diff("tests/tmp/rasterizers2_pre.png", "images/rasterizers2_pre.png",).unwrap());
+    // ren_base.pixf.drop_alpha().to_file("tests/tmp/rasterizers2_pre.png").unwrap();
+    // assert!(agg::ppm::img_diff("tests/tmp/rasterizers2_pre.png", "images/rasterizers2_pre.png",).unwrap());
 
 }
 
-fn text<T>(ras: &mut agg::RasterizerScanline,
-           ren: &mut agg::RenderingScanlineAASolid<T>,
-           x: f64, y: f64, txt: &str)
-    where T: agg::Pixel
-{
-    let mut t = agg::GsvText::new();
-    t.size(8.0, 0.0);
-    t.text(txt);
-    t.start_point(x,y);
-    t.flip(true);
-    let mut stroke = agg::Stroke::new(t);
-    stroke.width(0.7);
-    ras.add_path(&stroke);
-    ren.color(agg::Rgba8::new(0,0,0,255));
-    agg::render_scanlines(ras, ren);
+// fn text<T>(ras: &mut agg::RasterizerScanline,
+//            ren: &mut agg::RenderingScanlineAASolid<T>,
+//            x: f64, y: f64, txt: &str)
+//     where T: agg::Pixel
+// {
+//     let mut t = agg::GsvText::new();
+//     t.size(8.0, 0.0);
+//     t.text(txt);
+//     t.start_point(x,y);
+//     t.flip(true);
+//     let mut stroke = agg::Stroke::new(t);
+//     stroke.width(0.7);
+//     ras.add_path(&stroke);
+//     ren.color(agg::Rgba8::new(0,0,0,255));
+//     agg::render_scanlines(ras, ren);
 
-}
+// }
