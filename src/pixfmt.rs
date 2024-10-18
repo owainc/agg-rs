@@ -30,6 +30,13 @@ impl<T> Pixfmt<T> where Pixfmt<T>: Pixel {
                phantom: PhantomData
         }
     }
+
+    pub fn from_buf(buf: Vec<u8>, width: usize, height: usize) -> Self {
+        Self { rbuf: RenderingBuffer::from_buf(buf, width, height, Self::bpp()),
+               phantom: PhantomData
+        }
+    }
+
     // /// Fill with a color
     // pub fn fill<C: Color>(&mut self, color: C) {
     //     let (w,h) = (self.width(), self.height());
